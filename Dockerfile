@@ -5,8 +5,6 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY . .
 RUN export FLASK_APP=app.py
-RUN flask db init
-#RUN flask db migrate
-#RUN flask db upgrade
-EXPOSE 5000
+
+EXPOSE 5000:5000
 CMD ["python3", "app.py"]
