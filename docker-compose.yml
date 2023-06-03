@@ -13,6 +13,8 @@ services:
       - '5432:5432'
     networks:
       - union
+    container_name: 'db'
+
 
   flask:
     build:
@@ -21,7 +23,9 @@ services:
       - '5000:5000'
     networks: 
       - union
-    container_name: 'myapp'
+    container_name: 'flask'
+    depends_on:
+      - db
 
 networks: 
   union:
